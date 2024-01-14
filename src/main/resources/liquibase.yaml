@@ -1,0 +1,16 @@
+spring:
+  datasource:    
+    url: jdbc:postgresql://localhost:5432/usls_bff
+    driver-class-name: org.postgresql.Driver 
+    username: postgres
+    password: admin@123
+    connection-timeout: 60000
+    max-lifetime: 28800
+    auto-commit: true
+    maximum-pool-size: 30
+    minimum-idle: 5
+  liquibase:
+    changeLogFile:  classpath:db/changelog/db.changelog-master.yaml
+  jpa:
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
