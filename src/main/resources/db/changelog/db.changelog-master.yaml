@@ -1,3 +1,11 @@
 databaseChangeLog:
 - include:
-    file: db/changelog/scripts/create_user_table.sql
+    file: db/changelog/scripts/create_groups_table.sql    
+- include:
+    file: db/changelog/scripts/create_roles_table.sql
+- include:
+    file: db/changelog/scripts/create_permissions_table.sql
+- include:
+    file: db/changelog/scripts/create_users_table.sql
+- include:
+    file: db/changelog/scripts/insert_initial_setup_data.sql                    

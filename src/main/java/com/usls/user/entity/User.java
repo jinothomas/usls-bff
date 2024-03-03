@@ -1,30 +1,56 @@
 package com.usls.user.entity;
 
+import java.util.UUID;
+
+import org.hibernate.annotations.UuidGenerator;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.usls.common.entity.Auditor;
+import com.usls.role.entity.Role;
+import com.usls.user.enums.UserEnums.UserStatus;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name="USLS_USERS")
-public class User {
+@EntityListeners(AuditingEntityListener.class)
+public class User extends Auditor<String>{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="USER_ID")
-	private Long userId;
+	@UuidGenerator(style = UuidGenerator.Style.RANDOM)
+	@Column(name="USER_ID", updatable = false, nullable = false)
+	private UUID userId;
 	
-	@Column(name="NAME", length = 50, nullable = false, unique = false)
+	@Column(name="NAME", nullable = false, unique = false)
 	private String name;
 	
-	@Column(name="EMAIL", length = 50, nullable = false, unique = false)
+	@OneToOne
+	@JoinColumn(name="ROLE_ID", nullable = false)
+	private Role role;
+	
+	@Column(name="EMAIL", nullable = false, unique = false)
 	private String email;
 	
-	@Column(name="DEPARTMENT", length = 20, nullable = false, unique = false)
+	@Column(name="DEPARTMENT", nullable = false, unique = false)
 	private String Department;
 	
-	@Column(name="MOBILE_NUMBER", length = 11, nullable = true, unique = false)
+	@Column(name="MOBILE_NUMBER", nullable = true, unique = false)
 	private String mobileNumber;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="USER_STATUS")
+	private UserStatus userStatus;
+	
 }

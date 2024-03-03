@@ -9,7 +9,7 @@ spring:
     auto-commit: true
     maximum-pool-size: 30
     minimum-idle: 5
-  liquibase:
+  liquibase:d
     changeLogFile:  classpath:db/changelog/db.changelog-master.yaml
   jpa:
     properties:

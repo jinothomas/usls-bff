@@ -1,5 +1,7 @@
 package com.usls.user.dto;
 
+import com.usls.user.enums.UserEnums.UserStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,9 +17,11 @@ public class UserRequest {
 	
 	private String email;
 	
+	private UserStatus userStatus;
+	
 	private String password;
 	
-	private String Department;
+	private String department;
 	
 	private String mobileNumber;
 	
