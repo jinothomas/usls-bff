@@ -26,28 +26,28 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@PostMapping("/createUser")
+	@PostMapping("/create")
 	public ResponseEntity<UserResponse> createUser(@RequestBody UserRequest request) {
 		request.setUserStatus(UserStatus.NEW);
 		return ResponseEntity.ok(userService.createUser(request));
 	}
 	
-	@GetMapping("/getUser/{userId}")
+	@GetMapping("/get/{userId}")
 	public ResponseEntity<UserResponse> getUser(@PathVariable("userId") String userId) {
 		return ResponseEntity.ok(userService.getUser(UUID.fromString(userId)));
 	}
 	
-	@GetMapping("/getAllUsers")
+	@GetMapping("/get")
 	public ResponseEntity<Set<UserResponse>> getAllUsers() {
 		return ResponseEntity.ok(userService.getAllUsers());
 	}
 	
-	@DeleteMapping("/deleteUser/{userId}")
+	@DeleteMapping("/delete/{userId}")
 	public ResponseEntity<String> deleteUser(@PathVariable("userId") String userId) {
 		return ResponseEntity.ok(userService.deleteUser(UUID.fromString(userId)));
 	}
 	
-	@PutMapping("/updateUser/{userId}")
+	@PutMapping("/update/{userId}")
 	public ResponseEntity<String> updateUser(@PathVariable("userId") String userId, @RequestBody UserRequest userRequest) {
 		return ResponseEntity.ok(userService.updateUser(UUID.fromString(userId), userRequest));
 	}

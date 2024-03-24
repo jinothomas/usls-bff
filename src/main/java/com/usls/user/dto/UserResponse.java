@@ -3,6 +3,7 @@ package com.usls.user.dto;
 import java.util.UUID;
 
 import com.usls.common.dto.ResponseTemplate;
+import com.usls.role.dto.RoleResponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +22,9 @@ public class UserResponse extends ResponseTemplate {
 
 	private String email;
 
-	private String Department;
-
 	private String mobileNumber;
+	
+	private String userStatus;
+	
+	private RoleResponse role;
 }

@@ -20,6 +20,8 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -31,6 +33,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class Role extends Auditor<String>{
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID", updatable = false, nullable = false)
 	private Long id;
 	

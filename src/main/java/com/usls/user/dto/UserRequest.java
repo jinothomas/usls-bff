@@ -15,13 +15,13 @@ public class UserRequest {
 	
 	private String name;
 	
+	private Long roleId;
+	
 	private String email;
 	
 	private UserStatus userStatus;
 	
 	private String password;
-	
-	private String department;
 	
 	private String mobileNumber;
 	

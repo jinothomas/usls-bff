@@ -19,33 +19,33 @@ import com.usls.role.service.RoleService;
 
 
 @RestController
-@RequestMapping(value = "/roles")
+@RequestMapping(value = "/role")
 public class RoleController {
 	
 	@Autowired
 	RoleService roleService;
 	
-	@PostMapping("/createRole")
+	@PostMapping("/create")
 	public ResponseEntity<RoleResponse> createRole(@RequestBody RoleRequest request) {
 		return ResponseEntity.ok(roleService.createRole(request));
 	}
 	
-	@GetMapping("/getRole/{roleId}")
+	@GetMapping("/get/{roleId}")
 	public ResponseEntity<RoleResponse> getRole(@PathVariable("roleId") Long roleId) {
 		return ResponseEntity.ok(roleService.getRole(roleId));
 	}
 	
-	@GetMapping("/getAllRoles")
+	@GetMapping("/get")
 	public ResponseEntity<Set<RoleResponse>> getAllRoles() {
 		return ResponseEntity.ok(roleService.getAllRoles());
 	}
 	
-	@DeleteMapping("/deleteRole/{roleId}")
+	@DeleteMapping("/delete/{roleId}")
 	public ResponseEntity<String> deleteRole(@PathVariable("roleId") Long roleId) {
 		return ResponseEntity.ok(roleService.deleteRole(roleId));
 	}
 	
-	@PutMapping("/updateRole/{roleId}")
+	@PutMapping("/update/{roleId}")
 	public ResponseEntity<String> updateRole(@PathVariable("roleId") Long roleId, @RequestBody RoleRequest RoleRequest) {
 		return ResponseEntity.ok(roleService.updateRole(roleId, RoleRequest));
 	}

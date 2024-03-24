@@ -1,17 +1,23 @@
 package com.usls.permission.dto;
 
-import com.usls.common.enums.Status;
+import com.usls.common.dto.ResponseTemplate;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
-public class PermissionResponse {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class PermissionResponse extends ResponseTemplate {
 	
 	private String name;
 
-	private Long groupId;
+	private Long roleId;
+	
+	private String description;
 
-	private Status status;
-
-	private Integer priority;
+	private String permissionType;
 }

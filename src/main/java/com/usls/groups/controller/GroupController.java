@@ -18,33 +18,33 @@ import com.usls.groups.dto.GroupResponse;
 import com.usls.groups.services.GroupServices;
 
 @RestController
-@RequestMapping(value = "/groups")
+@RequestMapping(value = "/group")
 public class GroupController {
 	
 	@Autowired
 	GroupServices groupServices;
 	
-	@PostMapping("/createGroup")
+	@PostMapping("/create")
 	public ResponseEntity<GroupResponse> createGroup(@RequestBody GroupRequest request) {
 		return ResponseEntity.ok(groupServices.createGroup(request));
 	}
 	
-	@GetMapping("/getGroup/{groupId}")
+	@GetMapping("/get/{groupId}")
 	public ResponseEntity<GroupResponse> getGroup(@PathVariable("groupId") Long groupId) {
 		return ResponseEntity.ok(groupServices.getGroup(groupId));
 	}
 	
-	@GetMapping("/getAllGroups")
+	@GetMapping("/get")
 	public ResponseEntity<Set<GroupResponse>> getAllGroups() {
 		return ResponseEntity.ok(groupServices.getAllGroups());
 	}
 	
-	@DeleteMapping("/deleteGroup/{groupId}")
+	@DeleteMapping("/delete/{groupId}")
 	public ResponseEntity<String> deleteGroup(@PathVariable("groupId") Long groupId) {
 		return ResponseEntity.ok(groupServices.deleteGroup(groupId));
 	}
 	
-	@PutMapping("/updateGroup/{groupId}")
+	@PutMapping("/update/{groupId}")
 	public ResponseEntity<String> updateGroup(@PathVariable("groupId") Long groupId, @RequestBody GroupRequest GroupRequest) {
 		return ResponseEntity.ok(groupServices.updateGroup(groupId, GroupRequest));
 	}

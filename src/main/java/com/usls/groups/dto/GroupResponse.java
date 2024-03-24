@@ -2,12 +2,19 @@ package com.usls.groups.dto;
 
 import java.util.Date;
 
+import com.usls.common.dto.ResponseTemplate;
 import com.usls.common.enums.Status;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
-public class GroupResponse {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class GroupResponse extends ResponseTemplate {
 	
 	private Long id;
 
@@ -15,7 +22,7 @@ public class GroupResponse {
 
 	private Status status;
 
-	private Date activatedDateFrom;
+	private Date activeDateFrom;
 
-	private Date activatedDateTo;
+	private Date activeDateTo;
 }

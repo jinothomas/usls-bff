@@ -34,7 +34,6 @@ public class UserModelMapper implements ApplicationModelMapper<UserRequest, User
 	public User updateEntityWithRequest(UserRequest userRequest, User user) {
 		user.setName((String)getValidData(userRequest.getName(), user.getName()));
 		user.setEmail((String)getValidData(userRequest.getEmail(), user.getEmail()));
-		user.setDepartment((String)getValidData(userRequest.getDepartment(), user.getDepartment()));
 		user.setMobileNumber((String)getValidData(userRequest.getMobileNumber(), user.getMobileNumber()));
 		user.setUserStatus((UserStatus)getValidData(userRequest.getUserStatus(), user.getUserStatus()));
 		return user;

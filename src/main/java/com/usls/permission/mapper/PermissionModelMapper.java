@@ -21,22 +21,22 @@ public class PermissionModelMapper
 	private ModelMapper modelMapper;
 	
 	@Override
-	public Permission mapRequestToEntity(PermissionRequest roleRequest) {
+	public Permission mapRequestToEntity(PermissionRequest permissionRequest) {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STANDARD);
-		return modelMapper.map(roleRequest, Permission.class);
+		return modelMapper.map(permissionRequest, Permission.class);
 	}
 	
 	@Override
-	public PermissionResponse mapEntityToResponse(Permission roleManagement) {
+	public PermissionResponse mapEntityToResponse(Permission permission) {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STANDARD);
-		return modelMapper.map(roleManagement, PermissionResponse.class);
+		return modelMapper.map(permission, PermissionResponse.class);
 	}
 	
 	@Override
-	public Permission updateEntityWithRequest(PermissionRequest roleRequest, Permission permission) {
-		permission.setName((String)getValidData(roleRequest.getName(), permission.getName()));
-		permission.setDescription((String)getValidData(roleRequest.getDescription(), permission.getDescription()));
-		permission.setPermissionType((PermissionType)getValidData(roleRequest.getStatus(), permission.getPermissionType()));
+	public Permission updateEntityWithRequest(PermissionRequest permissionRequest, Permission permission) {
+		permission.setName((String)getValidData(permissionRequest.getName(), permission.getName()));
+		permission.setDescription((String)getValidData(permissionRequest.getDescription(), permission.getDescription()));
+		permission.setPermissionType((PermissionType)getValidData(permissionRequest.getStatus(), permission.getPermissionType()));
 		return permission;
 	}
 	
