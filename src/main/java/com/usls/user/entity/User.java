@@ -43,6 +43,9 @@ public class User extends Auditor<String>{
 	@Column(name="EMAIL", nullable = false, unique = false)
 	private String email;
 	
+	@Column(name="PASSWORD", nullable = false, unique = false)
+	private String password;
+	
 	@Column(name="MOBILE_NUMBER", nullable = true, unique = false)
 	private String mobileNumber;
 	
